@@ -9,35 +9,40 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form action="" method="post" id="form">
+        <form id="form" novalidate method="POST">
             <fieldset id="first">
                 <div>
                     <label for="country">Country</label>
-                    <input type="text" name="country" id="country" maxlength="50" required>
+                    <input type="text" name="country" id="country" title="" required minlength="3" maxlength="50" pattern="^(?=.*[a-zA-Z])(?=.*(-| )*)(?!.*\d).+">
+                    <span class="message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label for="zip">Postcode</label>
-                    <input type="text" name="zip" id="zip" required>
+                    <input type="text" name="zip" id="zip" title="" required minlength="4" maxlength="6" pattern="^[1-9][0-9]{0,5}$">
+                    <span class="message" aria-live="polite"></span>
                 </div>
                 <div>
-                    <input type="button" value="Next" id="next">
+                    <button id="next">Next</button>
                 </div>
             </fieldset>
             <fieldset id="second" class="hidden">
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" title="" minlength="8" required pattern=".+@.+\..+">
+                    <span class="message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" minlength="8" title="" required pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*(#|_|-|\+|&|@|\*|\$|%)).{8,}">
+                    <span class="message" aria-live="polite"></span>
                 </div>
                 <div>
                     <label for="password-confirm">Confirm PW</label>
-                    <input type="password" name="password-confirm" id="password-confirm" required>
+                    <input type="password" name="password-confirm" id="password-confirm" minlength="8" title="" required>
+                    <span class="message" aria-live="polite"></span>
                 </div>
                 <div>
-                    <input type="button" value="Send" id="submit">
+                    <button id="submit">Send</button>
                 </div>
             </fieldset>
         </form>

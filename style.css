@@ -1,12 +1,12 @@
-body, input {
+body, input, button {
     background-color: gainsboro;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
 }
 
-/* .hidden {
+.hidden {
     display: none;
-} */
+}
 
 fieldset {
     display: flex;
@@ -24,12 +24,14 @@ fieldset {
 }
 
 fieldset div {
+    position: relative;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     width: 100%;
     padding: 17px 40px;
     box-sizing: border-box;
+    /* border: 1px solid teal; */
 }
 
 fieldset div:last-child {
@@ -42,7 +44,63 @@ input {
     padding: 5px 3px;
 }
 
-input[type="button"] {
+#remaining-char {
+    position: absolute;
+    top: 25px;
+    right: 12px;
+    font-size: 15px;
+}
+
+input:invalid, input:focus {
+    box-shadow: none;
+}
+
+input:focus-visible {
+    outline: none;
+    background-color: rgb(240, 236, 253);
+}
+
+input.error, input.empty {
+    border-color: red;
+}
+
+input.not-finished {
+    border-color: rgb(105, 105, 214);
+}
+
+input.valid {
+    border-color: rgb(98, 199, 98);
+}
+
+span.message {
+    position: absolute;
+    top: 0px;
+    right: 50px;
+    font-size: 12px;
+}
+
+input.error + span.message, input.empty + span.message {
+    color: rgb(236, 0, 0);
+}
+
+input.not-finished + span.message {
+    color: rgb(105, 105, 214);
+}
+
+input.valid + span.message {
+    color: rgb(49, 153, 49);
+    top: 22px;
+    right: 12px;
+    font-size: 20px;
+    background-color: white;
+    z-index: 10;
+}
+
+#country.valid + span.message { 
+    right: -14px
+}
+
+input[type="button"], button {
     width: 120px;
     height: 50px;
     border: 1px solid rgb(248, 247, 242);
